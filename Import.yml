@@ -1,8 +1,8 @@
 ---
 - name: Import AAP
   hosts: 192.168.1.10
-  gather_facts: true
-  become: yes
+  collections:
+    - awx.awx
   tasks:
   
   - name: Export all assets
