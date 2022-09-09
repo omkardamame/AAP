@@ -1,6 +1,6 @@
 ---
 - name: Ping Test (DNS)
-  hosts: vmware 
+  hosts: all 
   gather_facts: true
   tasks:
 
