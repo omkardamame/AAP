@@ -8,7 +8,7 @@
       controller_host: 192.168.1.10
       controller_username: admin
       controller_password: admin123
-      all: True
+      all: true
 
   - name: Export all inventories
     awx.awx.export:
@@ -23,4 +23,4 @@
       controller_username: admin
       controller_password: admin123
       job_templates: "My Template"
-      credential: 'all'
+      credentials: 'all'
