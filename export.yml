@@ -4,7 +4,7 @@
   tasks:
 
   - name: Export all assets
-    export:
+    controller_export:
       controller_host: 192.168.1.10
       controller_username: admin
       controller_password: admin123
@@ -12,7 +12,7 @@
       all: true
 
   - name: Export all inventories
-    export:
+    econtroller_export:
       controller_host: 192.168.1.10
       controller_username: admin
       controller_password: admin123
@@ -20,7 +20,7 @@
       inventory: 'all'
 
   - name: Export a job template named "My Template" and all Credentials
-    export:
+    controller_export:
       controller_host: 192.168.1.10
       controller_username: admin
       controller_password: admin123
