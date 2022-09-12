@@ -1,8 +1,10 @@
 ---
 - name: Export AAP
   hosts: 192.168.1.10
+  become: true
   vars:
       ansible_python_interpreter: /usr/bin/python3.9
+      remote_user: root
   tasks:
 
   - name: Export all assets
@@ -10,7 +12,7 @@
       controller_host: 192.168.1.10
       controller_username: admin
       controller_password: admin123
-      validate_certs: False
+      validate_certs: false
       all: true
 
   - name: Export all inventories
@@ -18,7 +20,7 @@
       controller_host: 192.168.1.10
       controller_username: admin
       controller_password: admin123
-      validate_certs: False
+      validate_certs: false
       inventory: 'all'
 
   - name: Export a job template named "My Template" and all Credentials
@@ -27,5 +29,5 @@
       controller_username: admin
       controller_password: admin123
       job_templates: "My Template"
-      validate_certs: False
+      validate_certs: false
       credentials: 'all'
