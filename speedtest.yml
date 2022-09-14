@@ -1,6 +1,7 @@
 ---
 - name: Speedtest
   hosts: all
+  gather_facts: true
   tasks:
     - name: Get Speedtest Script
       get_url:
