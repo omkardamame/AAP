@@ -4,9 +4,6 @@
   become: true
   vars:
       ansible_python_interpreter: /usr/bin/python3.9
-      remote_user: root
-  collections:
-      - awx.awx
   tasks:
 
   - name: Export all assets
