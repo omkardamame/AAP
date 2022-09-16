@@ -13,7 +13,6 @@
         controller_password: admin123
         job_templates: "PING_TEST"
         validate_certs: False
-        all: True
     register: export_output
 
   - name: Import all assets from our export
