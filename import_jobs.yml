@@ -20,7 +20,7 @@
         dest: /opt/jobs
         mode: 0755
         
-  - name: Load all jobs from json file
+  - name: Load all job templates from json file
     awx.awx.import:
         controller_host: 192.168.1.10
         controller_username: admin
