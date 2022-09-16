@@ -6,11 +6,12 @@
       remote_user: root
   tasks:
 
-  - name: Export all assets
+  - name: Export Jobs
     awx.awx.export:
-        controller_host: 192.168.1.10
+        controller_host: 192.168.1.40
         controller_username: admin
         controller_password: admin123
+        job_templates: "PING_TEST"
         validate_certs: False
         all: True
     register: export_output
@@ -23,10 +24,3 @@
         validate_certs: False
         assets: "{{ export_output.assets }}"
 
-  - name: Load data from a json file created by a command like awx export --organization Default
-    awx.awx.import:
-        controller_host: 192.168.1.10
-        controller_username: admin
-        controller_password: admin123
-        validate_certs: False
-        assets: "{{ lookup('file', 'org.json') | from_json() }}"
