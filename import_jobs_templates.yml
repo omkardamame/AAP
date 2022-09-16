@@ -12,4 +12,4 @@
         controller_username: admin
         controller_password: admin123
         validate_certs: false
-        assets: "{{ lookup('file', 'test_jobs.json') | from_json() }}"
+        assets: "{{ lookup('file', '/root/test_jobs.json') | from_json() }}"
