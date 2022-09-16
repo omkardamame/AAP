@@ -1,0 +1,21 @@
+---
+- name: Export AAP
+  hosts: 192.168.1.10
+  become: true
+  vars:
+      ansible_python_interpreter: /usr/bin/python3.9
+  tasks:
+
+  - name: Exporting test_job
+    awx.awx.export:
+      controller_host: 192.168.1.10
+      controller_username: admin
+      controller_password: admin123
+      job_templates: "test_job"
+      validate_certs: false
+    register: export
+    
+  - name: Copying test_job.json file
+    copy:
+      content: "{{ export.assets}}"
+      dest: /root/test_jobs.json
