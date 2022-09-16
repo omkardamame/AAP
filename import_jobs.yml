@@ -1,6 +1,6 @@
 ---
 - name: Import AAP
-  hosts: 192.168.1.20
+  hosts: 192.168.1.10
   become: true
   vars:
       ansible_python_interpreter: /usr/bin/python3.9
@@ -22,7 +22,7 @@
         
   - name: Load all jobs from json file
     awx.awx.import:
-        controller_host: 192.168.1.20
+        controller_host: 192.168.1.10
         controller_username: admin
         controller_password: admin123
         validate_certs: false
