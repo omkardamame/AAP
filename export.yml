@@ -4,6 +4,7 @@
   become: true
   vars:
       ansible_python_interpreter: /usr/bin/python3.9
+      awxkit: /usr/local/lib/python3.9/site-packages/awxkit
   tasks:
 
   - name: Export all assets
