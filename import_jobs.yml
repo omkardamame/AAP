@@ -1,0 +1,28 @@
+---
+- name: Import AAP
+  hosts: localhost
+  vars:
+      ansible_python_interpreter: /usr/bin/python3.9
+  tasks:
+
+  - name: Create a Directory /tmp/jobs
+    file:
+        path: /tmp/jobs
+        state: directory
+        mode: 0755
+        owner: root
+        group: root
+        
+  - name: Getting export_jobs.json from GitHub
+    get_url:
+        url: https://raw.githubusercontent.com/omkardamame/AAP/main/export_jobs.json
+        dest: /tmp/jobs
+        mode: 0755
+        
+  - name: Load all jobs from json file
+    awx.awx.import:
+        controller_host: 192.168.1.10
+        controller_username: admin
+        controller_password: admin123
+        validate_certs: False
+        assets: "{{ lookup('file', '/tmp/jobs/export_jobs.json') | from_json() }}"
