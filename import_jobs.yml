@@ -1,13 +1,14 @@
 ---
 - name: Import AAP
   hosts: 192.168.1.20
+  beocme: true
   vars:
       ansible_python_interpreter: /usr/bin/python3.9
   tasks:
 
   - name: Create a Directory /tmp/jobs
     file:
-        path: /tmp/jobs
+        path: /opt/jobs
         state: directory
         mode: 0755
         owner: root
@@ -24,5 +25,5 @@
         controller_host: 192.168.1.20
         controller_username: admin
         controller_password: admin123
-        validate_certs: False
-        assets: "{{ lookup('file', '/tmp/jobs/export_jobs.json') | from_json() }}"
+        validate_certs: false
+        assets: "{{ lookup('file', '/opt/jobs/export_jobs.json') | from_json() }}"
